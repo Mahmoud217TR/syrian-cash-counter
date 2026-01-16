@@ -1,12 +1,12 @@
 FROM nginx:alpine
 
-# Remove default nginx config
-RUN rm /etc/nginx/conf.d/default.conf
+# Remove default nginx config (CRITICAL)
+RUN rm -f /etc/nginx/conf.d/default.conf
 
-# Copy pre-built Vue files
+# Copy Vue build
 COPY dist /usr/share/nginx/html
 
-# SPA routing
+# Copy our nginx config
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
