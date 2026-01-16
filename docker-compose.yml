@@ -1,0 +1,11 @@
+services:
+  web:
+    build: .
+    container_name: scc_web
+    restart: unless-stopped
+    networks:
+      - edge
+
+networks:
+  edge:
+    external: true
