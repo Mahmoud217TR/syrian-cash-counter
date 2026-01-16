@@ -1,12 +1,19 @@
+# -------- Build stage --------
+FROM node:18-alpine AS build
+
+ENV NODE_OPTIONS=--max-old-space-size=512
+
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+RUN npm run build
+
+# -------- Runtime stage --------
 FROM nginx:alpine
 
-# Remove default nginx config (CRITICAL)
-RUN rm -f /etc/nginx/conf.d/default.conf
-
-# Copy Vue build
-COPY dist /usr/share/nginx/html
-
-# Copy our nginx config
+RUN rm -rf /usr/share/nginx/html/*
+COPY dist/ /usr/share/nginx/html/
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
