@@ -1,16 +1,12 @@
-# -------- Build stage --------
-FROM node:22-alpine AS build
-
-WORKDIR /app
-COPY package*.json ./
-RUN npm install
-COPY . .
-RUN npm run build
-
-# -------- Runtime stage --------
 FROM nginx:alpine
 
-COPY --from=build /app/dist /usr/share/nginx/html
+# Remove nginx default files
+RUN rm -rf /usr/share/nginx/html/*
+
+# Copy Vue build output ONLY
+COPY dist/ /usr/share/nginx/html/
+
+# SPA routing
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
