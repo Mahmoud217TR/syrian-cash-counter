@@ -2,6 +2,19 @@
   import { computed, ref } from 'vue'
   import { type Bill, generateBill } from './bill'
 
+  import bill500New from '@/assets/bills/new/500.webp'
+  import bill200New from '@/assets/bills/new/200.webp'
+  import bill100New from '@/assets/bills/new/100.webp'
+  import bill50New from '@/assets/bills/new/50.webp'
+  import bill25New from '@/assets/bills/new/25.webp'
+  import bill10New from '@/assets/bills/new/10.webp'
+
+  import bill5000Old from '@/assets/bills/old/5000.webp'
+  import bill2000Old from '@/assets/bills/old/2000.webp'
+  import bill1000Old from '@/assets/bills/old/1000.webp'
+  import bill500Old from '@/assets/bills/old/500.webp'
+
+
   const totalValue = computed(() => {
     let total = 0;
     for (const bill of bills) {
@@ -26,18 +39,19 @@
     return formatNumber(newPrice.value);
   });
 
-  const bills: Bill[] = [
-    generateBill(1, 50000, '500 ل.س', true, 'images/bills/new/500.webp'),
-    generateBill(2, 20000, '200 ل.س', true, 'images/bills/new/200.webp'),
-    generateBill(3, 10000, '100 ل.س', true, '/images/bills/new/100.webp'),
-    generateBill(4, 5000, '50 ل.س', true, 'images/bills/new/50.webp'),
-    generateBill(5, 2500, '25 ل.س', true, '/images/bills/new/25.webp'),
-    generateBill(6, 1000, '10 ل.س', true, 'images/bills/new/10.webp'),
-    generateBill(7, 5000, '5,000 ل.س', false, 'images/bills/old/5000.webp'),
-    generateBill(8, 2000, '2,000 ل.س', false, 'images/bills/old/2000.webp'),
-    generateBill(9, 1000, '1,000 ل.س', false, 'images/bills/old/1000.webp'),
-    generateBill(10, 500, '500 ل.س', false, 'images/bills/old/500.webp'),
-  ]
+const bills: Bill[] = [
+  generateBill(1, 50000, '500 ل.س', true, bill500New),
+  generateBill(2, 20000, '200 ل.س', true, bill200New),
+  generateBill(3, 10000, '100 ل.س', true, bill100New),
+  generateBill(4, 5000,  '50 ل.س',  true, bill50New),
+  generateBill(5, 2500,  '25 ل.س',  true, bill25New),
+  generateBill(6, 1000,  '10 ل.س',  true, bill10New),
+
+  generateBill(7, 5000,  '5,000 ل.س', false, bill5000Old),
+  generateBill(8, 2000,  '2,000 ل.س', false, bill2000Old),
+  generateBill(9, 1000,  '1,000 ل.س', false, bill1000Old),
+  generateBill(10, 500,  '500 ل.س',   false, bill500Old),
+]
 
   const billCounts = ref<Record<number, number>>(
     Object.fromEntries(bills.map((bill) => [bill.id, 0]))
