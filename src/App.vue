@@ -27,16 +27,16 @@
   });
 
   const bills: Bill[] = [
-    generateBill(1, 50000, '500 ل.س', true, 'images/bills/new/500.png'),
-    generateBill(2, 20000, '200 ل.س', true, 'images/bills/new/200.png'),
-    generateBill(3, 10000, '100 ل.س', true, '/images/bills/new/100.png'),
-    generateBill(4, 5000, '50 ل.س', true, 'images/bills/new/50.png'),
-    generateBill(5, 2500, '25 ل.س', true, '/images/bills/new/25.png'),
-    generateBill(6, 1000, '10 ل.س', true, 'images/bills/new/10.png'),
-    generateBill(7, 5000, '5,000 ل.س', false, 'images/bills/old/5000.png'),
-    generateBill(8, 2000, '2,000 ل.س', false, 'images/bills/old/2000.png'),
-    generateBill(9, 1000, '1,000 ل.س', false, 'images/bills/old/1000.png'),
-    generateBill(10, 500, '500 ل.س', false, 'images/bills/old/500.png'),
+    generateBill(1, 50000, '500 ل.س', true, 'images/bills/new/500.webp'),
+    generateBill(2, 20000, '200 ل.س', true, 'images/bills/new/200.webp'),
+    generateBill(3, 10000, '100 ل.س', true, '/images/bills/new/100.webp'),
+    generateBill(4, 5000, '50 ل.س', true, 'images/bills/new/50.webp'),
+    generateBill(5, 2500, '25 ل.س', true, '/images/bills/new/25.webp'),
+    generateBill(6, 1000, '10 ل.س', true, 'images/bills/new/10.webp'),
+    generateBill(7, 5000, '5,000 ل.س', false, 'images/bills/old/5000.webp'),
+    generateBill(8, 2000, '2,000 ل.س', false, 'images/bills/old/2000.webp'),
+    generateBill(9, 1000, '1,000 ل.س', false, 'images/bills/old/1000.webp'),
+    generateBill(10, 500, '500 ل.س', false, 'images/bills/old/500.webp'),
   ]
 
   const billCounts = ref<Record<number, number>>(
